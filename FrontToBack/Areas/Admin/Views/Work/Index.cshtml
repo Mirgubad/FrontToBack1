@@ -1,0 +1,40 @@
+﻿@using FrontToBack.Models;
+@model List<RecentWorkComponent>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Categories</h5>
+            <a asp-action="create" asp-controller="work" asp-area="admin" class="btn btn-outline-success col-1 my-3">Add</a>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var recentWorkComponent in Model)
+                        {
+                            <tr>
+                                <th>@recentWorkComponent.Id</th>
+                                <td>
+                                    <img class="img-thumbnail" style="width:200px;height:200px;object-fit:cover"
+                                         src="~/assets/img/@recentWorkComponent.FilePath" />
+                                </td>
+                                <td>@recentWorkComponent.Title</td>
+                                <td>
+                                    <a class="btn btn-outline-warning">Edit</a>
+                                    <a class="btn btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

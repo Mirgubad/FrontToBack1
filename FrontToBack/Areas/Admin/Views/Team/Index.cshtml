@@ -1,0 +1,44 @@
+﻿@using FrontToBack.Models;
+@model List<TeamMember>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Team Members</h5>
+        <div class=" my-3">
+            <a asp-action="create" asp-controller="team" asp-area="admin" class="btn btn-outline-success">Create teamMember</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var teamMember in Model)
+                        {
+                            <tr>
+                                <th>@teamMember.Id</th>
+                                <td><img style="width:200px;height:200px" class="img-thumbnail" src="~/assets/img/@teamMember.PhotoName" /></td>
+                                <td>@teamMember.Name @teamMember.Surname</td>
+                                <td>@teamMember.Position</td>
+                                <td>
+                                    <form method="post" asp-action="delete" asp-controller="team" asp-area="admin" asp-route-id="@teamMember.Id">
+                                        <a asp-action="update" asp-controller="team" asp-area="admin" asp-route-id="@teamMember.Id" class="btn btn-outline-warning">Edit</a>
+                                        <button class="btn btn-outline-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

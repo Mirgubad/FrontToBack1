@@ -1,0 +1,38 @@
+﻿@using FrontToBack.Models;
+@model List<Category>
+
+
+    <div class="card">
+        <div class="card-body">
+                <h5 class="card-title">Categories</h5>
+                <div class=" my-3">
+                    <a asp-action="create" asp-controller="category" asp-area="admin" class="btn btn-outline-success">Create category</a>
+                </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var category in Model)
+                            {
+                                <tr>
+                                    <th>@category.Id</th>
+                                    <td>@category.Title</td>
+                                    <td>
+                                    <a class="btn btn-outline-warning">Edit</a>
+                                        <a class="btn btn-outline-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
