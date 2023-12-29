@@ -17,6 +17,8 @@ namespace FrontToBack.DAL
         public DbSet<CategoryComponent> CategoryComponents { get; set; }
         public DbSet<RecentWorkComponent> RecentWorkComponents { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<FeaturedWorkComponent> FeaturedWorkComponent { get; set; }
+        public DbSet<FeaturedWorkComponentPhoto> FeaturedWorkComponentPhotos { get; set; }
 
 
 

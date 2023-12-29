@@ -1,0 +1,64 @@
+﻿@using FrontToBack.Areas.Admin.ViewModels.CategoryComponent
+@model CategoryComponentUpdateVM
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">Update CategoryComponent</div>
+        <hr>
+        <form enctype="multipart/form-data" method="post" asp-action="update" asp-controller="categorycomponent" asp-area="admin">
+            <input type="hidden" asp-for="FilePath" />
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control">
+                <span class="text-danger" asp-validation-for="Title"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId"></label>
+                <br />
+                <select asp-for="CategoryId" asp-items="Model.Categories"></select>
+                <span class="text-danger" asp-validation-for="CategoryId"></span>
+            </div>
+            <div>
+                <img style="width:150px;height:150px;object-fit:cover" class="img-thumbnail" src="~/assets/img/@Model.FilePath" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Photo"></label>
+                <input asp-for="Photo" class="form-control">
+                <span class="text-danger" asp-validation-for="Photo"></span>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-light px-5">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @*  <partial name="_ValidationFormPartial" /> *@
+
+    @Html.PartialAsync("_ValidationFormPartial")
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}

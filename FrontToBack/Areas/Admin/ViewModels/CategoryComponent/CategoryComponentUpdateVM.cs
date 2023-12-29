@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FrontToBack.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace FrontToBack.Models
+namespace FrontToBack.Areas.Admin.ViewModels.CategoryComponent
 {
-    public class CategoryComponent
+    public class CategoryComponentUpdateVM
     {
         public int Id { get; set; }
         [Required]
@@ -13,9 +15,9 @@ namespace FrontToBack.Models
         public string? FilePath { get; set; }
         public Category? Category { get; set; }
         [Required]
+        [Display(Name = "Categories")]
         public int CategoryId { get; set; }
-
-   
-
+        public IFormFile? Photo { get; set; }
+        public List<SelectListItem>? Categories { get; set; }
     }
 }

@@ -59,7 +59,7 @@ namespace FrontToBack.Areas.Admin.Controllers
 
             teamMember.PhotoName = filename;
 
-            await _dbContext.TeamMembers.AddAsync(teamMember);
+             _dbContext.TeamMembers.Add(teamMember);
             await _dbContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -95,9 +95,9 @@ namespace FrontToBack.Areas.Admin.Controllers
 
             if (!ModelState.IsValid) return View(model);
             var dbTeamMember = await _dbContext.TeamMembers.FindAsync(id);
-            dbTeamMember.Surname = model.Surname;
-            dbTeamMember.Name = model.Name;
-            dbTeamMember.Position = model.Position;
+
+            _dbContext.TeamMembers.Update(dbTeamMember);
+            await _dbContext.SaveChangesAsync();
 
             if (model.Photo != null)
             {

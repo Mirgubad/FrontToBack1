@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
-   
+
     <!--favicon-->
     <link rel="icon" href="~/admin/assets/images/favicon.ico" type="image/x-icon">
     <!-- Vector CSS -->
@@ -66,15 +66,15 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html">
-                        <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-                        <small class="badge float-right badge-light">New</small>
+                    <a asp-action="index" asp-controller="categorycomponent" asp-area="admin">
+                        <i class="zmdi zmdi-calendar-check"></i> <span>CategoryComponents</span>
+
                     </a>
                 </li>
 
                 <li>
-                    <a href="profile.html">
-                        <i class="zmdi zmdi-face"></i> <span>Profile</span>
+                    <a asp-action="index" asp-controller="featuredworkcomponent" asp-area="admin">
+                        <i class="zmdi zmdi-face"></i> <span>Featuredworkcomponent</span>
                     </a>
                 </li>
 
@@ -171,7 +171,7 @@
 
         <div class="content-wrapper">
             <div class="container-fluid">
-        @RenderBody()
+                @RenderBody()
             </div>
             <!-- End container-fluid-->
 
@@ -228,7 +228,8 @@
 
     </div><!--End wrapper-->
     <!-- Bootstrap core JavaScript-->
-    <script src="~/admin/assets/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    @* <script src="~/admin/assets/js/jquery.min.js"></script> *@
     <script src="~/admin/assets/js/popper.min.js"></script>
     <script src="~/admin/assets/js/bootstrap.min.js"></script>
 
@@ -237,16 +238,16 @@
     <!-- sidebar-menu js -->
     <script src="~/admin/assets/js/sidebar-menu.js"></script>
     <!-- loader scripts -->
-    <script src="~/admin/assets/js/jquery.loading-indicator.js"></script>
+    @* <script src="~/admin/assets/js/jquery.loading-indicator.js"></script> *@
     <!-- Custom scripts -->
     <script src="~/admin/assets/js/app-script.js"></script>
     <!-- Chart js -->
 
-    <script src="~/admin/assets/plugins/Chart.js/Chart.min.js"></script>
+    @* <script src="~/admin/assets/plugins/Chart.js/Chart.min.js"></script> *@
 
     <!-- Index js -->
-    <script src="~/admin/assets/js/index.js"></script>
-
+    @* <script src="~/admin/assets/js/index.js"></script> *@
+    @RenderSection("Scripts", false)
 
 </body>
 </html>

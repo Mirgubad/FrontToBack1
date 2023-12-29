@@ -1,0 +1,43 @@
+﻿@using FrontToBack.Models;
+@model List<CategoryComponent>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Category Component</h5>
+        <div class=" my-3">
+            <a asp-action="create" asp-controller="categorycomponent" asp-area="admin" class="btn btn-outline-success">Create category</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var categoryComponent in Model)
+                        {
+                            <tr>
+                                <th>@categoryComponent.Id</th>
+                                <td><img style="width:150px;height:150px;object-fit:cover" class="img-thumbnail" src="~/assets/img/@categoryComponent.FilePath" /></td>
+                                <td>@categoryComponent.Category.Title</td>
+                                <td>@categoryComponent.Title</td>
+                                <td>
+                                    <a asp-action="update" asp-controller="categorycomponent" asp-area="admin" asp-route-id="@categoryComponent.Id" class="btn btn-outline-warning">Update</a>
+                                    <a class="btn btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

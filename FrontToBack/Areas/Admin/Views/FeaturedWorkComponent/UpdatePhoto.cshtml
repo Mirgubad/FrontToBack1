@@ -1,0 +1,27 @@
+﻿@using FrontToBack.Areas.Admin.Views.FeaturedWorkComponent.FeaturedWorkComponentPhoto
+@model FeaturedWorkComponentPhotoUpdateVM
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">Update Featuredworkcomponentphoto</div>
+        <hr>
+        <form enctype="multipart/form-data" method="post" asp-action="updatephoto" asp-controller="featuredworkcomponent" asp-area="admin">
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" class="form-control">
+                <span class="text-danger" asp-validation-for="Order"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <button class="btn btn-light px-5">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationFormPartial")
+}

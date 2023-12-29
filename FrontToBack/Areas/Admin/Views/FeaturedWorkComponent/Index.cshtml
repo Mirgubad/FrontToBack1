@@ -1,0 +1,44 @@
+﻿@using FrontToBack.Models;
+@model FeaturedWorkComponent
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">FeaturedWorkComponent</h5>
+        @{
+            if (Model != null)
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                <tr>
+                                    <th>@Model.Id</th>
+                                    <td>@Model.Title</td>
+                                    <td>
+                                        <form method="post" asp-area="admin" asp-action="delete" asp-controller="featuredworkcomponent">
+                                            <a class="btn btn-outline-secondary">Details</a>
+                                            <a asp-action="update" asp-controller="featuredworkcomponent" asp-area="admin" asp-route-id="@Model.Id" class="btn btn-outline-warning">Update</a>
+                                            <button class="btn btn-outline-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class=" my-3">
+                    <a asp-action="create" asp-controller="featuredworkcomponent" asp-area="admin" class="btn btn-outline-success">Add FeaturedWorkComponent</a>
+                </div>
+            }
+        }
+    </div>
+</div>

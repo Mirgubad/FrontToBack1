@@ -16,10 +16,15 @@ namespace FrontToBack.Controllers
         public async Task<IActionResult> Index()
         {
             var cards = await _appDbContext.Cards.ToListAsync();
+            var recentWorkComponents = await _appDbContext.RecentWorkComponents.ToListAsync();
+            var categories = await _appDbContext.Categories
+                .Include(cc => cc.CategoryComponents)
+                .ToListAsync();
 
             HomeIndexViewModel model = new HomeIndexViewModel
             {
-                Cards = cards
+                Categories = categories,
+                RecentWorkComponents = recentWorkComponents
             };
 
             return View(model);
